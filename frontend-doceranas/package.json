@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://vercel-prueba1-server-lelb1j8tn-ariels-projects-1cd169f9.vercel.app",
+  "proxy": "https://vercel-prueba1-server-lelb1j8tn-ariels-projects-1cd169f9.vercel.app/api/photos",
   "eslintConfig": {
     "extends": [
       "react-app",
