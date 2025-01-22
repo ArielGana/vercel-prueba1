@@ -50,7 +50,7 @@
     display: none; /* Esconde el menú por defecto */
     flex-direction: column; /* Cambia los enlaces a columna */
     position: absolute;
-    top: 60px; /* Debajo del header */
+    top: 86px; /* Debajo del header */
     right: 0;
     background-color: #2196f3;
     width: 100%;
