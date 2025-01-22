@@ -13,5 +13,6 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
-  }
+  },
+  "proxy": "https://vercel-prueba1-server-lelb1j8tn-ariels-projects-1cd169f9.vercel.app"
 }
