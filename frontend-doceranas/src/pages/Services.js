@@ -62,9 +62,7 @@ const Services = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(
-        `https://vercel-prueba1-server-lelb1j8tn-ariels-projects-1cd169f9.vercel.app/api/photos/${folderName}`
-      );
+      const response = await fetch(`/api/photos/${folderName}`);
       const data = await response.json();
       setGalleryImages(data);
       setLoading(false);
