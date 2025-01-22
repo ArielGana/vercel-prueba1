@@ -63,7 +63,7 @@ const Services = () => {
 
     try {
       const response = await fetch(
-        `https://vercel-prueba1-server.vercel.app//api/photos/${folderName}`
+        `https://vercel-prueba1-server.vercel.app/api/photos/${folderName}`
       );
       const data = await response.json();
       setGalleryImages(data);
