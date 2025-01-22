@@ -10,7 +10,9 @@ const PhotoGallery = () => {
     // Llamada a la API para obtener las fotos
     const fetchPhotos = async () => {
       try {
-        const response = await fetch("/api/photos"); // Asegúrate de que esta ruta coincida con tu backend
+        const response = await fetch(
+          "https://vercel-prueba1-server-lelb1j8tn-ariels-projects-1cd169f9.vercel.app/api/photos"
+        ); // Asegúrate de que esta ruta coincida con tu backend
         const data = await response.json();
         setPhotos(data);
         setLoading(false);
