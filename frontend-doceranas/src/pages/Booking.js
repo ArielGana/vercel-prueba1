@@ -287,7 +287,9 @@ const Booking = () => {
     setIsModalfloatOpen(false);
   };
   const handleInputChange = (e) => {
-    setCodigoReserva(e.target.value);
+    // Convertir el valor a mayúsculas antes de actualizar el estado
+    const upperCaseValue = e.target.value.toUpperCase();
+    setCodigoReserva(upperCaseValue); // Actualizar el estado con el valor en mayúsculas
   };
 
   const handleSubmitreserva = async () => {

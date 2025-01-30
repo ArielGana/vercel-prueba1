@@ -33,7 +33,7 @@ h3 {
 
 .calendar-day {
   background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   padding: 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -41,17 +41,16 @@ h3 {
   transition: background-color 0.3s;
 }
 
-.calendar-day:hover {
-  background-color: #d1e7dd;
-}
-
 .calendar-day.empty {
   background-color: transparent;
 }
 
 .calendar-day.today {
-  background-color: #007bff;
+  background-color: #08cb04;
   color: white;
+}
+.calendar-day:hover {
+  background-color: #05a302;
 }
 
 .calendar-legend {
@@ -187,7 +186,7 @@ h3 {
 }
 
 .disabled {
-  background-color: #ddd;
+  background-color: #b0b0b0f7;
   cursor: not-allowed;
 }
 
@@ -324,7 +323,7 @@ h3 {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff;
+  background-color: #1b5e20;
   color: white;
   border: none;
   padding: 15px 20px;
@@ -337,7 +336,6 @@ h3 {
 }
 
 .floating-btn:hover {
-  background-color: #0056b3;
   transform: scale(1.1);
 }
 
@@ -356,7 +354,6 @@ h3 {
 
 .reserva {
   height: 45px;
-  width: 50px;
 }
 
 .reservarealizada {
@@ -490,7 +487,7 @@ h3 {
     padding: 8px;
   }
   .input-field {
-    margin-left: 65px;
+    margin-left: 22%;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -531,9 +528,15 @@ h3 {
     font-size: 0.9rem;
   }
 
-  .modal-content button {
-    font-size: 0.9rem;
+  .modal-content button[type="button"] {
+    font-size: 1rem;
+    margin-left: 55%;
     padding: 8px 12px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
   }
 
   .floating-btn {
@@ -562,11 +565,16 @@ h3 {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 310px) {
   .calendar {
     grid-template-columns: repeat(4, 1fr); /* Cambia a 4 columnas en móviles */
   }
-
+  .input-field {
+    margin-left: 10%;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   .calendar-day {
     padding: 8px;
     font-size: 12px;
@@ -586,9 +594,14 @@ h3 {
     font-size: 0.8rem;
   }
 
-  .modal-content button {
-    font-size: 0.8rem;
-    padding: 6px 10px;
+  .modal-content button[type="button"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    margin-left: 40%;
   }
 
   .floating-btn {
