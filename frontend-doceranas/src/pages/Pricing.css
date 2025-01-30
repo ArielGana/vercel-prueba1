@@ -19,3 +19,19 @@ td {
 th {
   background-color: #f2f2f2;
 }
+@media (max-width: 480px) {
+  .pricing {
+    overflow-x: auto; /* Permite scroll horizontal */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  }
+
+  table {
+    width: auto; /* El ancho de la tabla se ajusta al contenido */
+  }
+
+  th,
+  td {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+}

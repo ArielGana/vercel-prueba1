@@ -48,18 +48,19 @@ const services = [
 
 const Services = () => {
   const [activeService, setActiveService] = useState(null);
-  const [galleryImages, setGalleryImages] = useState([]); // Estado para las imágenes del servicio
+  const [galleryImages, setGalleryImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const toggleService = async (index, folderName) => {
     if (activeService === index) {
       setActiveService(null);
-      setGalleryImages([]);
       return;
     }
 
     setActiveService(index);
     setLoading(true);
+    setGalleryImages([]); // Se vacía la galería solo cuando un nuevo servicio es seleccionado.
 
     try {
       const response = await fetch(
@@ -67,9 +68,9 @@ const Services = () => {
       );
       const data = await response.json();
       setGalleryImages(data);
-      setLoading(false);
     } catch (error) {
       console.error("Error al cargar las imágenes:", error);
+    } finally {
       setLoading(false);
     }
   };
@@ -98,24 +99,51 @@ const Services = () => {
               />
             </div>
 
+            {/* Solo muestra la galería si el servicio está activo */}
             {activeService === index && (
               <div className="service-gallery">
                 {loading ? (
                   <p>Cargando galería...</p>
-                ) : (
+                ) : galleryImages.length > 0 ? (
                   galleryImages.map((image, imgIndex) => (
                     <img
                       key={imgIndex}
                       src={image.src}
                       alt={`${service.name} ${imgIndex + 1}`}
+                      className="thumbnail"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Evita que el evento de clic llegue al div padre
+                        setSelectedImage(image.src);
+                      }}
                     />
                   ))
+                ) : (
+                  <p>No hay imágenes disponibles.</p>
                 )}
               </div>
             )}
           </div>
         ))}
       </div>
+
+      {/* Modal para mostrar la imagen en grande */}
+      {selectedImage && (
+        <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-button"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✖
+            </button>
+            <img
+              src={selectedImage}
+              alt="Vista ampliada"
+              className="large-image"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

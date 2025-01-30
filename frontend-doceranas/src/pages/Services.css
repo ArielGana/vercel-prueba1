@@ -83,13 +83,121 @@
 .service-gallery img:hover {
   transform: scale(1.1);
 }
+.service-gallery img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin: 5px;
+  transition: transform 0.2s;
+}
 
+.service-gallery img:hover {
+  transform: scale(1.1);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+.large-image {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+/* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
-  .service-card {
-    min-width: 150px;
+  .services {
+    padding: 15px;
+    margin-top: 30px;
   }
 
-  .service-card:hover {
-    transform: scale(1.1);
+  .service-item {
+    padding: 15px;
+  }
+
+  .service-details {
+    flex-direction: column; /* Apila imagen y texto en móviles */
+    align-items: flex-start; /* Alinea el texto a la izquierda */
+    gap: 10px;
+  }
+
+  .service-img {
+    width: 100%; /* La imagen ocupa todo el ancho */
+    height: auto; /* Altura automática para mantener la proporción */
+    max-height: 150px; /* Altura máxima */
+  }
+
+  .services h2 {
+    font-size: 1.8rem; /* Reduce el tamaño del título */
+  }
+
+  .service-details h3 {
+    font-size: 1.3rem; /* Reduce el tamaño del subtítulo */
+  }
+
+  .service-details p {
+    font-size: 0.9rem; /* Reduce el tamaño del texto */
+  }
+
+  .service-gallery img {
+    width: 80px; /* Reduce el tamaño de las imágenes en la galería */
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .service-item {
+    padding: 10px;
+  }
+
+  .services h2 {
+    font-size: 1.5rem; /* Tamaño más pequeño para el título */
+  }
+
+  .service-details h3 {
+    font-size: 1.2rem; /* Tamaño más pequeño para el subtítulo */
+  }
+
+  .service-details p {
+    font-size: 0.8rem; /* Tamaño más pequeño para el texto */
+  }
+
+  .service-gallery img {
+    width: 60px; /* Tamaño más pequeño para las imágenes en la galería */
+    height: 60px;
   }
 }

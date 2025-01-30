@@ -72,3 +72,57 @@
 .close-button:hover {
   background: rgba(255, 0, 0, 0.8);
 }
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-gallery {
+    padding: 15px;
+    margin-top: 30px;
+  }
+
+  .photo-gallery h2 {
+    font-size: 1.8rem; /* Reduce el tamaño del título */
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en móviles grandes */
+  }
+
+  .gallery-item img {
+    height: 120px; /* Reduce la altura de las imágenes */
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-gallery {
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .photo-gallery h2 {
+    font-size: 1.5rem; /* Tamaño más pequeño para el título */
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles pequeños */
+  }
+
+  .gallery-item img {
+    height: 100px; /* Reduce aún más la altura de las imágenes */
+  }
+
+  .modal-content {
+    max-width: 95%; /* Ajusta el ancho del modal en móviles */
+  }
+
+  .close-button {
+    font-size: 1rem; /* Reduce el tamaño del botón de cerrar */
+    padding: 6px 10px;
+  }
+}
