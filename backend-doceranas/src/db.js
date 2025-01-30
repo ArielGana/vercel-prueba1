@@ -1,20 +1,18 @@
-const mysql = require("mysql");
+const postgres = require("postgres");
 
-// Crear conexión a la base de datos
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+const connectionString = process.env.DATABASE_URL;
+
+const sql = postgres(connectionString, {
+  ssl: "require", // Obligamos a usar SSL
 });
 
 // Probar la conexión
-connection.connect((err) => {
-  if (err) {
+sql`SELECT 1`
+  .then(() => {
+    console.log("Conexión exitosa");
+  })
+  .catch((err) => {
     console.error("Error conectando a la base de datos:", err);
-    return;
-  }
-  console.log("Conectado a la base de datos MySQL.");
-});
+  });
 
-module.exports = connection;
+module.exports = sql;

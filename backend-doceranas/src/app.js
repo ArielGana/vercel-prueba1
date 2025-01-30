@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const photoRoutes = require("./routes/photosapi");
 const agendaRoutes = require("./routes/agenda");
+const reservas = require("./routes/reservas");
 
 const app = express();
 
@@ -14,6 +15,7 @@ const apiRoutes = require("./routes/photosapi");
 
 app.use("/api", apiRoutes);
 app.use("/api/agenda", agendaRoutes); // Agendar
+app.use("/api", reservas);
 app.use(photoRoutes);
 // Rutas básicas
 app.get("/", (req, res) => {
