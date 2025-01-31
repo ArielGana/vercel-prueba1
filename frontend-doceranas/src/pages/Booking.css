@@ -199,6 +199,11 @@ h3 {
 .modal-content button[type="submit"] {
   background-color: #4caf50;
   color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .modal-content button[type="submit"]:hover {
