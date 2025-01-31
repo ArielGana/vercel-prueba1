@@ -537,6 +537,7 @@ h3 {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
+    margin-left: 35%;
   }
 
   .floating-btn {
