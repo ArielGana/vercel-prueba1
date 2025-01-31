@@ -176,15 +176,21 @@ h3 {
   height: 80px;
 }
 
-.modal-content button {
+.modal-content button[type="button"] {
+  font-size: 1rem;
+  margin-left: 55%;
+  padding: 8px 12px;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-left: 44%;
+  margin-right: 0px;
+  position: absolute;
+  right: 11px;
+  margin: 0;
 }
-
 .disabled {
   background-color: #b0b0b0f7;
   cursor: not-allowed;
@@ -596,13 +602,19 @@ h3 {
   }
 
   .modal-content button[type="button"] {
+    font-size: 1rem;
+    margin-left: 55%;
+    padding: 8px 12px;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-
-    margin-left: 40%;
+    margin-left: 44%;
+    margin-right: 0px;
+    position: absolute;
+    right: 11px;
+    margin: 0;
   }
 
   .floating-btn {
