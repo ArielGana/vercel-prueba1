@@ -50,8 +50,15 @@ const sendEmail = async (formData) => {
 };
 
 router.post("/add-visitor", async (req, res) => {
-  const { nombre, apellido, telefono, correo, fechavisita, codigoreserva } =
-    req.body;
+  const {
+    nombre,
+    apellido,
+    telefono,
+    correo,
+    fechavisita,
+    codigoreserva,
+    mensaje,
+  } = req.body;
 
   // Validar que todos los campos estén presentes
   if (
@@ -60,7 +67,8 @@ router.post("/add-visitor", async (req, res) => {
     !telefono ||
     !correo ||
     !fechavisita ||
-    !codigoreserva
+    !codigoreserva ||
+    !mensaje
   ) {
     return res.status(400).json({
       message: "Todos los campos son requeridos",
@@ -70,8 +78,8 @@ router.post("/add-visitor", async (req, res) => {
   try {
     // Consulta SQL para insertar los datos
     const result = await db`
-      INSERT INTO agenda (nombre, apellido, telefono, correo, fechavisita, codigoreserva)
-      VALUES (${nombre}, ${apellido}, ${telefono}, ${correo}, ${fechavisita}, ${codigoreserva})
+      INSERT INTO agenda (nombre, apellido, telefono, correo, fechavisita, codigoreserva, mensaje)
+      VALUES (${nombre}, ${apellido}, ${telefono}, ${correo}, ${fechavisita}, ${codigoreserva}, ${mensaje})
       RETURNING *;
     `;
 
@@ -81,6 +89,7 @@ router.post("/add-visitor", async (req, res) => {
       correo,
       fechavisita,
       codigoreserva,
+      mensaje,
     };
 
     // Enviar el correo
